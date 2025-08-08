@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ammu Akash — bby ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-1: #0f172a;
+      --bg-2: #2b1055;
+      --accent: #ff6b9a;
+      --soft: #ffd7e3;
+      --glass: rgba(255,255,255,0.06);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Poppins',system-ui,Segoe UI,Roboto,Arial;}
+
+    body{
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(255,107,154,0.08), transparent),
+                  linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+      color:#fff;overflow:hidden;
+      display:flex;align-items:center;justify-content:center;padding:30px;
+    }
+
+    .card{
+      width:min(920px,96%);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border-radius:22px;padding:38px;position:relative;box-shadow:0 10px 40px rgba(6,6,10,0.6);
+      backdrop-filter: blur(6px);overflow:hidden;
+    }
+
+    /* header */
+    .top{
+      display:flex;gap:20px;align-items:center;
+    }
+    .logo{
+      width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#ffd36b);display:flex;align-items:center;justify-content:center;font-family:'Great Vibes',cursive;font-size:34px;color:#2b0a23;box-shadow:0 8px 30px rgba(255,107,154,0.15), inset 0 -6px 18px rgba(0,0,0,0.12);
+      transform-origin:center;animation:float 4s ease-in-out infinite;
+    }
+    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)}}
+
+    .title{
+      flex:1;
+    }
+    .title h1{
+      margin:0;font-family:'Great Vibes',cursive;font-size:48px;letter-spacing:1px;color:var(--soft);text-shadow:0 6px 22px rgba(255,107,154,0.12);
+      transform-origin:left;animation:pop 0.9s cubic-bezier(.2,.9,.3,1) both;
+    }
+    @keyframes pop{0%{transform:scale(.8);opacity:.2}100%{transform:scale(1);opacity:1}}
+
+    .subtitle{color:#ffdbe6;font-size:14px;margin-top:6px;opacity:.9}
+
+    /* center area */
+    .center{
+      display:flex;gap:30px;margin-top:26px;align-items:center;
+    }
+    .poem{
+      flex:1;padding:26px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;border:1px solid rgba(255,255,255,0.03);
+      line-height:1.6;font-size:16px;min-height:200px;position:relative;overflow:hidden;
+    }
+
+    .poem .line{opacity:0;transform:translateY(8px);animation:reveal 0.7s forwards;}
+    .poem .line:nth-child(1){animation-delay:0.25s}
+    .poem .line:nth-child(2){animation-delay:0.6s}
+    .poem .line:nth-child(3){animation-delay:1s}
+    .poem .line:nth-child(4){animation-delay:1.4s}
+    @keyframes reveal{to{opacity:1;transform:none}}
+
+    .badge{
+      width:260px;min-height:200px;border-radius:14px;padding:20px;background:linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,107,154,0.06));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;border:1px solid rgba(255,255,255,0.04);
+    }
+    .heart{
+      width:110px;height:110px;background:linear-gradient(135deg,#ff7aa0,#ffb3d4);border-radius:40% 40% 50% 50%;transform:rotate(-45deg);position:relative;animation:pulse 1.6s infinite ease-in-out;box-shadow:0 12px 40px rgba(255,107,154,0.18);
+    }
+    .heart:before,.heart:after{content:'';position:absolute;background:linear-gradient(135deg,#ff7aa0,#ffb3d4);border-radius:50%;width:100px;height:100px;top:-50px}
+    .heart:before{left:0}
+    .heart:after{left:50px}
+    @keyframes pulse{0%{transform:rotate(-45deg) scale(.96)}50%{transform:rotate(-45deg) scale(1.06)}100%{transform:rotate(-45deg) scale(.96)}}
+
+    .name-large{font-family:'Great Vibes',cursive;font-size:34px;margin-top:6px;color:#250318;text-shadow:0 6px 18px rgba(255,255,255,0.08)}
+    .nick{font-weight:600;margin-top:4px;color:#fff;background:linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,0.04);cursor:pointer;user-select:none;transition:transform .18s ease}
+    .nick:active{transform:scale(.98)}
+
+    .controls{display:flex;gap:10px;margin-top:16px}
+    .btn{padding:10px 14px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.07);cursor:pointer;font-weight:600}
+    .btn.heart-btn{border-color: rgba(255,107,154,0.35)}
+
+    /* floating heart canvas */
+    .falling{position:absolute;inset:0;pointer-events:none}
+
+    /* sparkle */
+    .sparkle{position:absolute;right:20px;top:20px;font-size:12px;color:rgba(255,255,255,0.7)}
+
+    /* footer */
+    .footer{position:absolute;left:24px;bottom:20px;font-size:13px;color:rgba(255,255,255,0.6)}
+
+    /* responsive */
+    @media (max-width:720px){
+      .center{flex-direction:column}
+      .badge{width:100%}
+    }
+  </style>
+</head>
+<body>
+  <div class="card" role="main">
+    <div class="top">
+      <div class="logo">A</div>
+      <div class="title">
+        <h1>For Ammu Akash — my bby ❤️</h1>
+        <div class="subtitle">A little page made with lots of ❤ just for you</div>
+      </div>
+      <div class="sparkle">✨ Always yours</div>
+    </div>
+
+    <div class="center">
+      <div class="poem" aria-live="polite">
+        <div class="line">Ammu Akash, every sunset paints your name in gold.</div>
+        <div class="line">You are the gentle song in my loudest day,</div>
+        <div class="line">the curve of laughter that keeps the world warm.</div>
+        <div class="line">Stay close, my bby — today and every tomorrow.</div>
+      </div>
+
+      <div class="badge">
+        <div class="heart" aria-hidden="true"></div>
+        <div class="name-large">Ammu Akash</div>
+        <div class="nick" id="nickBtn" title="Click to toggle nickname">bby</div>
+        <div class="controls">
+          <button class="btn" id="toggleHearts">Toggle Hearts</button>
+          <button class="btn heart-btn" id="confettiBtn">Confetti</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">Made with ❤️ — open and share</div>
+
+    <canvas class="falling" id="canvas"></canvas>
+  </div>
+
+  <script>
+    // Toggle nickname text (you can edit both names here)
+    const nickBtn = document.getElementById('nickBtn');
+    let showNick = true;
+    nickBtn.addEventListener('click', ()=>{
+      showNick = !showNick;
+      nickBtn.textContent = showNick ? 'bby' : 'My Love';
+      nickBtn.animate([{transform:'scale(0.96)'},{transform:'scale(1.02)'},{transform:'scale(1)'}],{duration:420,easing:'cubic-bezier(.2,.8,.2,1)'});
+    });
+
+    // Falling hearts canvas
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    let W = canvas.width = innerWidth;
+    let H = canvas.height = innerHeight;
+
+    window.addEventListener('resize', ()=>{W=canvas.width=innerWidth;H=canvas.height=innerHeight;});
+
+    class Heart{
+      constructor(){
+        this.reset();
+      }
+      reset(){
+        this.x = Math.random()*W;
+        this.y = -20 - Math.random()*300;
+        this.size = 8 + Math.random()*18;
+        this.vy = 0.6 + Math.random()*1.6;
+        this.vx = Math.random()*1.2 - 0.6;
+        this.angle = Math.random()*Math.PI*2;
+        this.spin = (Math.random()-0.5)/30;
+        this.opacity = 0.6 + Math.random()*0.4;
+        this.color = `rgba(255,${100+Math.floor(Math.random()*120)},${140+Math.floor(Math.random()*100)},${this.opacity})`;
+      }
+      draw(){
+        ctx.save();ctx.translate(this.x,this.y);ctx.rotate(this.angle);
+        const s = this.size;
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.moveTo(0, -s/2);
+        ctx.bezierCurveTo(-s, -s/2, -s, s/2, 0, s);
+        ctx.bezierCurveTo(s, s/2, s, -s/2, 0, -s/2);
+        ctx.fill();
+        ctx.restore();
+      }
+      update(){
+        this.y += this.vy;this.x += this.vx;this.angle += this.spin;
+        if(this.y>H+60) this.reset();
+      }
+    }
+
+    let hearts = Array.from({length:24}, ()=>new Heart());
+    let heartsOn = true;
+    function anim(){
+      ctx.clearRect(0,0,W,H);
+      if(heartsOn) hearts.forEach(h=>{h.update();h.draw()});
+      requestAnimationFrame(anim);
+    }
+    anim();
+
+    document.getElementById('toggleHearts').addEventListener('click', ()=>{
+      heartsOn = !heartsOn;
+      document.getElementById('toggleHearts').textContent = heartsOn ? 'Toggle Hearts' : 'Show Hearts';
+    });
+
+    // simple confetti burst
+    function confettiBurst(){
+      const particles = [];
+      for(let i=0;i<80;i++){
+        particles.push({x:W/2+ (Math.random()-0.5)*200, y:H/2+ (Math.random()-0.5)*60, vx:(Math.random()-0.5)*8, vy:(Math.random()-3.5)*6, size:4+Math.random()*7, color:['#ff6b9a','#ffd36b','#b3ffd8','#9ad1ff'][Math.floor(Math.random()*4)], life:60});
+      }
+      let t = 0;
+      function tick(){
+        ctx.clearRect(0,0,W,H);
+        if(heartsOn) hearts.forEach(h=>{h.draw()});
+        particles.forEach(p=>{
+          p.x += p.vx; p.y += p.vy; p.vy += 0.18; p.life--; ctx.fillStyle = p.color; ctx.fillRect(p.x,p.y,p.size,p.size);
+        });
+        particles.filter(p=>p.life>0);
+        t++; if(t<120) requestAnimationFrame(tick);
+      }
+      tick();
+    }
+
+    document.getElementById('confettiBtn').addEventListener('click', confettiBurst);
+
+    // small accessibility: pause animation on reduce-motion
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(prefersReduced){heartsOn=false;document.getElementById('toggleHearts').style.display='none';}
+
+    // allow downloading as html via a button (optional)
+    // You can edit the names directly in the HTML file for custom text
+  </script>
+</body>
+</html>
